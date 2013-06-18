@@ -1,14 +1,24 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
-<head>
-  <title><%= full_title(yield(:title)) %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %> <!--Hänvisar till partial _shim.html.erb-->
+  </head>
+  
+  <body>
+    <%= render 'layouts/header' %> <!--Hänvisar till _header.html.erb-->
 
-  <%= yield %>
+    <div class="container">
+      <%= yield %>
+      <%= render 'layouts/footer' %> <!--Hänvisar till _footer.html.erb-->
+    </div>
 
-</body>
+  </body>
+
 </html>
+
+
+
